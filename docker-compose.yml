@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  backend:
+    container_name: backend-nest
+    build:
+      context: ./
+      dockerfile: ./docker/nest/Dockerfile
+      target: dev
+      args:
+        - VIMRC_PATH=${VIMRC_PATH:-.vimrc.example}
+        - NEST_PROJECT_PATH=${NEST_PROJECT_PATH:-./backend-nest}
+    ports:
+      - ${BACKEND_NEST_FORWARD_PORT:-3000}:${BACKEND_NEST_CONTAINER_PORT:-3000}
+    volumes:
+      - ./backend-nest:/usr/src/nest
+      - ./.env:/usr/src/nest/.env
+      - ~/.gitconfig:/etc/gitconfig
+    working_dir: /usr/src/nest
+    tty: true
+
+  postgres:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=${DB_NAME:-postgres}
+      - POSTGRES_USER=${DB_USER:-postgres}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-postgres}
+    ports:
+      - "${DB_FORWARD_PORT:-5432}:${DB_PORT:-5432}"
+    volumes:
+      - psql-data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/var/lib/redis/data
+
+volumes:
+  psql-data:
+  redis-data:
