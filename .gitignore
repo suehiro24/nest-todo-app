@@ -1,0 +1,9 @@
+# Env
+.vimrc
+
+# App
+.env
+static
+templates
+node_modules
+.pnpm-store
