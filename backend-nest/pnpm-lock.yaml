@@ -16,6 +16,7 @@ specifiers:
   '@types/supertest': ^2.0.11
   '@typescript-eslint/eslint-plugin': ^5.0.0
   '@typescript-eslint/parser': ^5.0.0
+  dotenv: ^16.0.3
   eslint: ^8.0.1
   eslint-config-prettier: ^8.3.0
   eslint-plugin-prettier: ^4.0.0
@@ -40,6 +41,7 @@ dependencies:
   '@nestjs/core': 9.1.6_bx3wiubfryfbvpzqwr6ml4ajpu
   '@nestjs/passport': 9.0.0_pkfoh2sq4j5mhokn7ayryfespi
   '@nestjs/platform-express': 9.1.6_6whalgrsvisgjemghedgkfq7dm
+  dotenv: 16.0.3
   passport: 0.6.0
   passport-local: 1.0.0
   reflect-metadata: 0.1.13
@@ -2174,6 +2176,11 @@ packages:
     dependencies:
       esutils: 2.0.3
     dev: true
+
+  /dotenv/16.0.3:
+    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
+    engines: {node: '>=12'}
+    dev: false
 
   /ee-first/1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
